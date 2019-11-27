@@ -1,3 +1,4 @@
+<?php ?>
 <section class="">
   <div class="container position-relative p-0 mt-90" style="max-width: 700px;">
     <h3 class="bg-theme-colored p-15 mt-0 mb-0 text-white">Make an Appointment</h3>
