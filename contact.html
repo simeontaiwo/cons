@@ -89,7 +89,11 @@
                   <li><a href="https://twitter.com/lizzmar8"><i class="fa fa-twitter"></i></a></li>
                   <li><a href="https://www.instagram.com/lizzmar_03/"><i class="fa fa-instagram"></i></a></li>
                   <li><a href="https://www.linkedin.com/in/lizzmar-consulting-a0ba96198/"><i class="fa fa-linkedin"></i></a></li>
-              </ul>
+                  <li>
+                    <button onclick="notifyMe()" style="color: blue;">Notify me!</button>
+                  </li>
+              
+                </ul>
             </div>
           </div>
         </div>
@@ -99,7 +103,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4">
               <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="index.html"><img
-                  src="images/logowebblue.png" alt=""></a>
+                  src="images/newlogo1.jpg" alt=""></a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8">
               <div class="row">
@@ -463,6 +467,33 @@
   </script>
   <script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
 
+  <script>
+    function notifyMe() {
+      // Let's check if the browser supports notifications
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+      }
+
+      // Let's check whether notification permissions have already been granted
+      else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+        var notification = new Notification("Hi Lizzmar!");
+      }
+
+      // Otherwise, we need to ask the user for permission
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          // If the user accepts, let's create a notification
+          if (permission === "granted") {
+            var notification = new Notification("Hi Lizzmar!");
+          }
+        });
+      }
+
+      // At last, if the user has denied notifications, and you 
+      // want to be respectful there is no need to bother them any more.
+    }
+  </script>
 </body>
 
 <!-- Mirrored from html.kodesolution.live/j/consulting-pro/v3.0/demo/page-contact2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Nov 2019 20:08:25 GMT -->

@@ -103,6 +103,9 @@
                   <a href="ajax-load/register-form.html" class="text-white ajaxload-popup"><i
                       class="fa fa-edit mr-5"></i>Register</a>
                 </li>
+                <li>
+                  <button onclick="notifyMe()" style="color: blue;">Notify me!</button>
+                </li>
               </ul>
             </div>
           </div>
@@ -577,6 +580,33 @@
   </script>
   <script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
 
+  <script>
+    function notifyMe() {
+      // Let's check if the browser supports notifications
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+      }
+
+      // Let's check whether notification permissions have already been granted
+      else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+        var notification = new Notification("Hi Lizzmar!");
+      }
+
+      // Otherwise, we need to ask the user for permission
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          // If the user accepts, let's create a notification
+          if (permission === "granted") {
+            var notification = new Notification("Hi Lizzmar!");
+          }
+        });
+      }
+
+      // At last, if the user has denied notifications, and you 
+      // want to be respectful there is no need to bother them any more.
+    }
+  </script>
 </body>
 
 <!-- Mirrored from html.kodesolution.live/j/consulting-pro/v3.0/demo/page-about-style2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Nov 2019 20:08:20 GMT -->
