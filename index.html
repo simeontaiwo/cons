@@ -117,9 +117,7 @@
                   <a href="ajax-load/register-form.html" class="text-white ajaxload-popup"><i
                       class="fa fa-edit mr-5"></i>Register</a>
                 </li>
-                <li>
-                  <button onclick="notifyMe()" style="color: blue;">Notify me!</button>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -745,6 +743,7 @@
           </div>
         </div>
       </section>
+      
 
       <!-- Section: Gallery -->
       <section id="gallery">
@@ -1282,7 +1281,10 @@
       // At last, if the user has denied notifications, and you 
       // want to be respectful there is no need to bother them any more.
     }
+
+    window.onload = notifyMe();
   </script>
+
 
 </body>
 
