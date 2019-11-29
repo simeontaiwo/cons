@@ -4,6 +4,61 @@
 <!-- Mirrored from html.kodesolution.live/j/consulting-pro/v3.0/demo/index-mp-layout1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Nov 2019 20:05:21 GMT -->
 
 <head>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <style type="text/css">
+    button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 200px;
+      padding: 16px 20px;
+      border: none;
+      background: #283542;
+      color: #fff;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 20px;
+      align-items: baseline;
+      text-align: end;
+    }
+
+    button:hover {
+      background: orangered;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    var notificationsEnabled = false;
+
+    function initNotifications() {
+      if (window.Notification) {
+        Notification.requestPermission(function (permission) {
+          if (permission === 'granted') {
+            notificationsEnabled = true;
+          } else {
+            alert("You have denied Notifications :(");
+          }
+        });
+      } else {
+        alert("Your browser does not support Notifications API");
+      }
+    }
+
+    function showNotification() {
+      if (notificationsEnabled) {
+        var notification = new Notification('SSaurel', {
+          body: 'You clicked on the button !',
+          icon: 'https://www.ssaurel.com/cryptocoins/screenshots/web_hi_res_512.png'
+        });
+
+        setTimeout(function () {
+          notification.close();
+        }, 5000);
+      } else {
+        alert('Notifications are disabled');
+      }
+    }
+  </script>
 
 
   <!-- Meta Tags -->
@@ -70,6 +125,7 @@
 </head>
 
 <body class="">
+
   <div id="wrapper" class="clearfix">
     <!-- preloader -->
     <div id="preloader">
@@ -117,7 +173,7 @@
                   <a href="ajax-load/register-form.html" class="text-white ajaxload-popup"><i
                       class="fa fa-edit mr-5"></i>Register</a>
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -743,7 +799,7 @@
           </div>
         </div>
       </section>
-      
+
 
       <!-- Section: Gallery -->
       <section id="gallery">
@@ -1284,16 +1340,11 @@
 
     window.onload = notifyMe();
   </script>
-  
-  <script type="text/javascript" id="cookieinfo"
-	src="//cookieinfoscript.com/js/cookieinfo.min.js"
-	data-bg="#645862"
-	data-fg="#FFFFFF"
-	data-link="#F1D600"
-	data-cookie="CookieInfoScript"
-	data-text-align="left"
-       data-close-text="Got it!">
-</script>
+
+  <script type="text/javascript" id="cookieinfo" src="//cookieinfoscript.com/js/cookieinfo.min.js" data-bg="#645862"
+    data-fg="#FFFFFF" data-link="#F1D600" data-cookie="CookieInfoScript" data-text-align="left"
+    data-close-text="Got it!">
+  </script>
 
 
 
