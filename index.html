@@ -67,7 +67,7 @@
 <![endif]-->
 </head>
 
-<body onload="initNotifications()" data-gr-c-s-loaded="true">
+<body class="">
 
   <div id="wrapper" class="clearfix">
     <!-- preloader -->
@@ -1255,40 +1255,43 @@
   </script>
   <script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
   <script type="text/javascript" id="cookieinfo"
-	src="//cookieinfoscript.com/js/cookieinfo.min.js">
+	src="//cookieinfoscript.com/js/cookieinfo.min.js"
+	data-bg="#645862"
+	data-fg="#808080"
+	data-link="#F1D600"
+	data-cookie="CookieInfoScript"
+	data-text-align="left"
+data-close-text="Got it!">
 </script>
+ <script>
+    function notifyMe() {
+      // Let's check if the browser supports notifications
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+      }
 
+      // Let's check whether notification permissions have already been granted
+      else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+        var notification = new Notification("Hi Lizzmar!");
+      }
 
+      // Otherwise, we need to ask the user for permission
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          // If the user accepts, let's create a notification
+          if (permission === "granted") {
+            var notification = new Notification("Hi Lizzmar!");
+          }
+        });
+      }
 
-<script>
-    var notificationsEnabled = false;
-    function initNotifications() {
-        if (window.Notification) {
-            Notification.requestPermission(function(permission) {
-                if (permission === 'granted') {
-                    notificationsEnabled = true;
-                } else {
-                    alert("You have denied Notifications :(");
-                }
-            });
-        } else {
-            alert("Your browser does not support Notifications API");
-        }
+      // At last, if the user has denied notifications, and you 
+      // want to be respectful there is no need to bother them any more.
     }
-    
-    function showNotification() {
-        if (notificationsEnabled) {
-            var notification = new Notification('SSaurel', {
-                body : 'You clicked on the button !',
-                icon : 'https://www.ssaurel.com/cryptocoins/screenshots/web_hi_res_512.png'
-            });
-    
-            setTimeout (function() { notification.close(); }, 5000);
-        } else {
-            alert ('Notifications are disabled');
-        }
-    }
-    </script>
+
+    window.onload = notifyMe();
+  </script>
 
 </body>
 
